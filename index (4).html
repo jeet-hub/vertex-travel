@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertex Travel — Corporate Travel &amp; MICE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A3D91;
+      --secondary: #1E5EFF;
+      --accent: #3B82F6;
+      --bg: #FFFFFF;
+      --light: #F7F9FC;
+      --footer: #081C3A;
+      --text: #1B2430;
+      --text-soft: #5C6779;
+      --border: #E4E9F1;
+      --serif-line: rgba(10, 61, 145, 0.14);
+      --ease: cubic-bezier(.22, .61, .36, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+
+    .eyebrow {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: var(--secondary);
+      display: inline-block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    section {
+      position: relative;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 30px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border-radius: 2px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all .35s var(--ease);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -12px rgba(30, 94, 255, 0.45);
+    }
+
+    .btn-outline {
+      border-color: rgba(10, 61, 145, 0.3);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      background: rgba(10, 61, 145, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline.light {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #fff;
+    }
+
+    .btn-outline.light:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #fff;
+    }
+
+    /* reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1.is-visible {
+      transition-delay: .12s;
+    }
+
+    .reveal-delay-2.is-visible {
+      transition-delay: .24s;
+    }
+
+    .reveal-delay-3.is-visible {
+      transition-delay: .36s;
+    }
+
+    /* ===== NAV ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 26px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all .45s var(--ease);
+      background: transparent;
+    }
+
+    header.scrolled {
+      padding: 16px 60px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .logo {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #fff;
+      letter-spacing: -0.01em;
+      transition: color .4s;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    header.scrolled .logo {
+      color: var(--primary);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    nav a {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.88);
+      transition: color .3s;
+      position: relative;
+    }
+
+    header.scrolled nav a {
+      color: var(--text);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 1px;
+      background: var(--secondary);
+      transition: width .3s var(--ease);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-cta {
+      padding: 12px 24px;
+      background: #fff;
+      color: var(--primary) !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: 2px;
+      transition: all .3s var(--ease);
+    }
+
+    header.scrolled .nav-cta {
+      background: var(--primary);
+      color: #fff !important;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+    }
+
+    .hamburger {
+      display: none;
+      width: 26px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .35s var(--ease);
+    }
+
+    header.scrolled .hamburger span {
+      background: var(--primary);
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+      top: 9px;
+    }
+
+    .hamburger span:nth-child(3) {
+      top: 18px;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      top: 9px;
+      transform: rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      top: 9px;
+      transform: rotate(-45deg);
+    }
+
+    header.scrolled .hamburger.open span {
+      background: var(--primary);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      background: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 6px;
+      padding: 0 40px;
+      transform: translateY(-100%);
+      transition: transform .55s var(--ease);
+    }
+
+    .mobile-menu.open {
+      transform: translateY(0);
+    }
+
+    .mobile-menu a {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #fff;
+      padding: 14px 0;
+      opacity: 0.9;
+    }
+
+    .mobile-menu a:hover {
+      opacity: 1;
+      color: #9DC0FF;
+    }
+
+    .mobile-menu .mm-cta {
+      margin-top: 20px;
+      display: inline-flex;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--primary);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 900px 700px at 8% 20%, rgba(30, 94, 255, 0.35), transparent 60%),
+        linear-gradient(180deg, #08306e 0%, #0A3D91 60%, #0A3D91 100%);
+      z-index: 0;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-copy .eyebrow {
+      color: #9DC0FF;
+    }
+
+    .hero-copy .eyebrow::before {
+      background: #9DC0FF;
+    }
+
+    .hero-copy h1 {
+      color: #fff;
+      font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+      margin-bottom: 26px;
+    }
+
+    .hero-copy p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.08rem;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 640px;
+    }
+
+    .hero-visual .frame {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 120%;
+      object-fit: cover;
+      will-change: transform;
+    }
+
+    .floating-card {
+      position: absolute;
+      left: -40px;
+      bottom: 40px;
+      background: #fff;
+      padding: 28px 32px;
+      display: flex;
+      gap: 28px;
+      box-shadow: 0 30px 60px -20px rgba(8, 28, 58, 0.35);
+      z-index: 3;
+    }
+
+    .fc-stat {
+      text-align: left;
+    }
+
+    .fc-stat b {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .fc-stat span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+      text-transform: uppercase;
+    }
+
+    .fc-divider {
+      width: 1px;
+      background: var(--border);
+    }
+
+    /* travel route animation */
+    .route-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .route-path {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.55);
+      stroke-width: 1.5;
+      stroke-dasharray: 5 7;
+    }
+
+    .route-dot {
+      fill: #fff;
+    }
+
+    .route-dot.pulse {
+      animation: pulseDot 2.6s ease-out infinite;
+    }
+
+    .route-dot.pulse.d2 {
+      animation-delay: .6s;
+    }
+
+    .route-dot.pulse.d3 {
+      animation-delay: 1.2s;
+    }
+
+    @keyframes pulseDot {
+      0% {
+        opacity: 0.9;
+        r: 3;
+      }
+
+      70% {
+        opacity: 0;
+        r: 11;
+      }
+
+      100% {
+        opacity: 0;
+        r: 11;
+      }
+    }
+
+    .plane-icon {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .route-dot.pulse {
+        animation: none;
+      }
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      padding: 160px 0;
+      background: var(--bg);
+    }
+
+    .about .container {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .collage {
+      position: relative;
+      height: 560px;
+    }
+
+    .collage img {
+      position: absolute;
+      object-fit: cover;
+      box-shadow: 0 24px 50px -18px rgba(27, 36, 48, 0.25);
+    }
+
+    .collage .c1 {
+      width: 66%;
+      height: 62%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .collage .c2 {
+      width: 52%;
+      height: 46%;
+      bottom: 0;
+      right: 0;
+      z-index: 3;
+      border: 6px solid #fff;
+    }
+
+    .collage .c3 {
+      width: 38%;
+      height: 30%;
+      top: 14%;
+      right: 0;
+      z-index: 1;
+      border: 6px solid #fff;
+    }
+
+    .about-copy p {
+      color: var(--text-soft);
+      font-size: 1.02rem;
+      margin-bottom: 22px;
+      max-width: 560px;
+    }
+
+    .timeline {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+    }
+
+    .timeline-item {
+      padding-right: 24px;
+      border-left: 2px solid var(--secondary);
+      padding-left: 18px;
+    }
+
+    .timeline-item b {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      color: var(--primary);
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .timeline-item span {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+    }
+
+    /* ===== SERVICES ===== */
+    .services {
+      padding: 150px 0;
+      background: var(--light);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 70px;
+      gap: 40px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 3vw, 2.7rem);
+    }
+
+    .section-head p {
+      color: var(--text-soft);
+      max-width: 380px;
+      font-size: 0.98rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+
+    .service-card {
+      background: var(--light);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .service-img {
+      height: 230px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s var(--ease);
+    }
+
+    .service-card:hover .service-img img {
+      transform: scale(1.08);
+    }
+
+    .service-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8, 28, 58, 0) 40%, rgba(8, 28, 58, 0.55) 100%);
+    }
+
+    .service-body {
+      background: #fff;
+      padding: 30px 30px 34px;
+      transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+      position: relative;
+    }
+
+    .service-card:hover .service-body {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 44px -22px rgba(10, 61, 145, 0.28);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: var(--secondary);
+    }
+
+    .service-body h3 {
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .service-body p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    /* ===== WHY CHOOSE US ===== */
+    .why {
+      padding: 150px 0;
+      background: var(--bg);
+    }
+
+    .why .container {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .why-visual {
+      height: 600px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .why-visual img {
+      width: 100%;
+      height: 120%;
+      object-fit: cover;
+      will-change: transform;
+    }
+
+    .why-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+    }
+
+    .why-card {
+      background: #fff;
+      padding: 36px 30px;
+      transition: background .35s;
+    }
+
+    .why-card:hover {
+      background: var(--light);
+    }
+
+    .why-card .num {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      color: var(--serif-line);
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .why-card h4 {
+      font-size: 1.02rem;
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    /* ===== BACKED BY ===== */
+    .backed {
+      background: var(--light);
+      padding: 130px 0;
+    }
+
+    .backed-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 0;
+      box-shadow: 0 30px 70px -30px rgba(8, 28, 58, 0.28);
+    }
+
+    .backed-img {
+      height: 460px;
+      overflow: hidden;
+    }
+
+    .backed-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .backed-panel {
+      background: var(--primary);
+      color: #fff;
+      padding: 60px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .backed-panel .eyebrow {
+      color: #9DC0FF;
+    }
+
+    .backed-panel .eyebrow::before {
+      background: #9DC0FF;
+    }
+
+    .backed-panel h3 {
+      color: #fff;
+      font-size: 1.9rem;
+      margin-bottom: 18px;
+    }
+
+    .backed-panel p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.96rem;
+      margin-bottom: 30px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      padding-top: 26px;
+    }
+
+    .badge {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .badge b {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.3rem;
+    }
+
+    .badge span {
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* ===== STATS (parallax) ===== */
+    .stats {
+      position: relative;
+      padding: 140px 0;
+      background: var(--primary);
+      overflow: hidden;
+    }
+
+    .stats-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1800&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.16;
+    }
+
+    .stats-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(10, 61, 145, 0.96), rgba(8, 28, 58, 0.94));
+    }
+
+    .stats-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .stat-item {
+      text-align: left;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      padding-left: 26px;
+    }
+
+    .stat-item b {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      color: #fff;
+    }
+
+    .stat-item span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* ===== GALLERY (masonry) ===== */
+    .gallery {
+      padding: 150px 0;
+      background: var(--bg);
+    }
+
+    .masonry {
+      column-count: 3;
+      column-gap: 18px;
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 18px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform .7s var(--ease);
+    }
+
+    .masonry-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .masonry-item .tag {
+      position: absolute;
+      left: 18px;
+      bottom: 16px;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all .4s var(--ease);
+    }
+
+    .masonry-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8, 28, 58, 0) 55%, rgba(8, 28, 58, 0.65) 100%);
+      opacity: 0;
+      transition: opacity .4s;
+    }
+
+    .masonry-item:hover::after,
+    .masonry-item:hover .tag {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      padding: 150px 0;
+      background: var(--light);
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+
+    .test-card {
+      background: #fff;
+      padding: 40px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+    }
+
+    .quote-mark {
+      font-family: 'Manrope', sans-serif;
+      font-size: 2.6rem;
+      color: var(--serif-line);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .test-card p {
+      font-size: 0.96rem;
+      color: var(--text);
+      margin-bottom: 26px;
+    }
+
+    .test-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+
+    .test-foot .who b {
+      display: block;
+      font-size: 0.92rem;
+    }
+
+    .test-foot .who span {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .test-logo {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      color: var(--primary);
+      opacity: 0.55;
+    }
+
+    /* ===== CTA (parallax) ===== */
+    .cta {
+      position: relative;
+      padding: 180px 0;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1800&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, rgba(8, 28, 58, 0.92) 20%, rgba(10, 61, 145, 0.72) 100%);
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    .cta-content .eyebrow {
+      color: #9DC0FF;
+    }
+
+    .cta-content .eyebrow::before {
+      background: #9DC0FF;
+    }
+
+    .cta-content h2 {
+      color: #fff;
+      font-size: clamp(2rem, 3.4vw, 3rem);
+      margin-bottom: 30px;
+    }
+
+    .cta-content p {
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 38px;
+      max-width: 520px;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      padding: 150px 0;
+      background: var(--bg);
+    }
+
+    .contact .container {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 90px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 20px;
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-info-item:last-of-type {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-info-item .ci-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      width: 120px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .contact-info-item .ci-val {
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .map-frame {
+      margin-top: 32px;
+      height: 220px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(0.15) contrast(1.05);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .field.full {
+      grid-column: 1/-1;
+    }
+
+    .field label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      border: none;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.96rem;
+      color: var(--text);
+      background: transparent;
+      transition: border-color .3s;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-bottom-color: var(--secondary);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--footer);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 90px 0 34px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-logo {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo span {
+      color: var(--secondary);
+    }
+
+    .footer-col h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 22px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 14px;
+    }
+
+    .footer-col a {
+      font-size: 0.92rem;
+      transition: color .3s;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .socials {
+      display: flex;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all .3s;
+    }
+
+    .socials a:hover {
+      background: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 30px;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width:1080px) {
+      .container {
+        padding: 0 30px;
+      }
+
+      header {
+        padding: 20px 30px;
+      }
+
+      .hero-grid,
+      .about .container,
+      .why .container,
+      .contact .container,
+      .backed-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        height: 420px;
+        margin-top: 60px;
+      }
+
+      .floating-card {
+        position: static;
+        margin-top: -40px;
+        flex-wrap: wrap;
+      }
+
+      .collage {
+        height: 420px;
+      }
+
+      .why-visual {
+        height: 420px;
+      }
+
+      .backed-img {
+        height: 320px;
+      }
+
+      .backed-panel {
+        padding: 44px 34px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .service-grid,
+      .why-features,
+      .test-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 20px;
+      }
+
+      .masonry {
+        column-count: 2;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .collage {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width:640px) {
+
+      .service-grid,
+      .why-features,
+      .test-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .masonry {
+        column-count: 1;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .about,
+      .services,
+      .why,
+      .backed,
+      .stats,
+      .gallery,
+      .testimonials,
+      .cta,
+      .contact {
+        padding: 90px 0;
+      }
+
+      .cta {
+        padding: 110px 0;
+      }
+
+      .collage {
+        height: 320px;
+      }
+
+      .why-visual {
+        height: 320px;
+      }
+
+      header {
+        padding: 16px 20px;
+      }
+
+      .backed-panel {
+        padding: 36px 24px;
+      }
+
+      .hero {
+        padding-top: 90px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .stats-bg,
+      .cta-bg {
+        background-attachment: scroll;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="siteHeader">
+    <a href="#" class="logo">Vertex<span>Travel</span></a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a href="#contact" class="nav-cta">Talk to an Expert</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#testimonials">Clients</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-primary mm-cta">Talk to an Expert</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"
+      style="position:absolute;inset:0;z-index:0;background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1800&auto=format&fit=crop');background-size:cover;background-position:center;opacity:0.14;">
+    </div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy reveal is-visible">
+          <div class="eyebrow">Corporate Travel &amp; MICE</div>
+          <h1>Beyond Business Travel.<br>We Create Corporate Experiences.</h1>
+          <p>End-to-end Corporate Travel, MICE, Conferences, Leadership Retreats, Offsites and Employee Engagement
+            Experiences planned with precision and executed flawlessly.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Talk to an Expert</a>
+            <a href="#services" class="btn btn-outline light">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal is-visible reveal-delay-1">
+          <div class="frame">
+            <img id="heroImg"
+              src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1400&auto=format&fit=crop"
+              alt="Business traveler with luggage at a modern airport terminal">
+          </div>
+          <svg class="route-layer" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="route-path" d="M8,78 C 30,55 40,70 55,42 C 68,18 78,28 92,10"
+              vector-effect="non-scaling-stroke" />
+            <circle class="route-dot" cx="8" cy="78" r="2.6" />
+            <circle class="route-dot pulse" cx="8" cy="78" r="3" />
+            <circle class="route-dot" cx="55" cy="42" r="2.2" />
+            <circle class="route-dot pulse d2" cx="55" cy="42" r="3" />
+            <circle class="route-dot" cx="92" cy="10" r="2.6" />
+            <circle class="route-dot pulse d3" cx="92" cy="10" r="3" />
+            <g class="plane-icon" id="planeIcon">
+              <path
+                d="M0,-3.2 L1.1,-0.6 L4.2,0.4 L4.2,1.4 L1.1,0.8 L0.4,3.4 L1.6,4.2 L1.6,5 L0,4.4 L-1.6,5 L-1.6,4.2 L-0.4,3.4 L-1.1,0.8 L-4.2,1.4 L-4.2,0.4 L-1.1,-0.6 Z"
+                fill="#fff" transform="scale(1.4)" />
+            </g>
+            <animateMotion xlink:href="#planeIcon" dur="6s" repeatCount="indefinite" rotate="auto"
+              path="M8,78 C 30,55 40,70 55,42 C 68,18 78,28 92,10" />
+          </svg>
+          <div class="floating-card">
+            <div class="fc-stat"><b>50+</b><span>Events</span></div>
+            <div class="fc-divider"></div>
+            <div class="fc-stat"><b>5</b><span>Countries</span></div>
+            <div class="fc-divider"></div>
+            <div class="fc-stat"><b>24/7</b><span>Support</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="collage reveal">
+        <img class="c1"
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=900&auto=format&fit=crop"
+          alt="Business travelers in transit">
+        <img class="c3" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=700&auto=format&fit=crop"
+          alt="Corporate networking event">
+        <img class="c2"
+          src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=800&auto=format&fit=crop"
+          alt="Executive conference room">
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow reveal">Who We Are</div>
+        <h2 class="reveal reveal-delay-1" style="font-size:clamp(1.9rem,3vw,2.6rem);margin-bottom:24px;">Corporate
+          Travel, Reimagined.</h2>
+        <p class="reveal reveal-delay-1">Vertex Travel is the dedicated corporate travel and MICE vertical of Vertex Group, helping businesses create meaningful experiences through expertly managed travel, events and employee engagement programs.</p>
+        <p class="reveal reveal-delay-2">From leadership retreats and annual conferences to company offsites and gala evenings, we manage every detail from planning and logistics to flawless on-ground execution.</p>
+        <div class="timeline reveal reveal-delay-3">
+          <div class="timeline-item"><b>2011</b><span>Vertex Group founded</span></div>
+          <div class="timeline-item"><b>2016</b><span>MICE division launched</span></div>
+          <div class="timeline-item"><b>2020</b><span>Regional expansion, 5 countries</span></div>
+          <div class="timeline-item"><b>2026</b><span>50+ enterprise experiences delivered</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow reveal">What We Do</div>
+          <h2 class="reveal reveal-delay-1">Comprehensive Corporate Travel Solutions</h2>
+        </div>
+        <p class="reveal reveal-delay-1">From a single leadership offsite to a multi-country annual meet, one team owns
+          the entire experience — planning, logistics and delivery.</p>
+      </div>
+      <div class="service-grid">
+
+        <div class="service-card reveal">
+          <div class="service-img"><img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop"
+              alt="Corporate offsite"></div>
+          <div class="service-body">
+            <div class="service-icon">▣</div>
+            <h3>Corporate Offsites</h3>
+            <p>Curated locations and agendas designed to align teams away from the day-to-day.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-img"><img
+              src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=800&auto=format&fit=crop"
+              alt="Team building activity"></div>
+          <div class="service-body">
+            <div class="service-icon">◈</div>
+            <h3>Team Building Experiences</h3>
+            <p>Structured activities that build trust and collaboration across departments.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-img"><img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
+              alt="Leadership retreat"></div>
+          <div class="service-body">
+            <div class="service-icon">◆</div>
+            <h3>Leadership Retreats</h3>
+            <p>Private, distraction-free settings for strategy sessions and executive alignment.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-img"><img
+              src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800&auto=format&fit=crop"
+              alt="Business conference"></div>
+          <div class="service-body">
+            <div class="service-icon">▤</div>
+            <h3>Conferences & Annual Meets</h3>
+            <p>End-to-end production for conferences of every scale, on-site or hybrid.</p>
+          </div>
+        </div>
+
+        <!-- <div class="service-card reveal reveal-delay-1">
+          <div class="service-img"><img
+              src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=800&auto=format&fit=crop"
+              alt="Annual company meet"></div>
+          <div class="service-body">
+            <div class="service-icon">▥</div>
+            <h3>Annual Meets</h3>
+            <p>Company-wide gatherings that communicate direction and celebrate the year.</p>
+          </div>
+        </div> -->
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-img"><img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop"
+              alt="Award ceremony stage"></div>
+          <div class="service-body">
+            <div class="service-icon">✦</div>
+            <h3>Gala Nights & Award Ceremonies</h3>
+            <p>Stage-managed recognition events that do justice to the achievements they mark.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-img"><img
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop"
+              alt="Gala night dinner"></div>
+          <div class="service-body">
+            <div class="service-icon">✧</div>
+            <h3>Incentive Travel Programs</h3>
+            <p>Formal evenings, produced end-to-end — venue, décor, catering and entertainment.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-img"><img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
+              alt="Employee engagement outdoor session"></div>
+          <div class="service-body">
+            <div class="service-icon">◉</div>
+            <h3>Corporate Events & Experiences</h3>
+            <p>Ongoing experiences that keep culture strong across distributed teams.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-img"><img
+              src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop"
+              alt="Travel logistics planning"></div>
+          <div class="service-body">
+            <div class="service-icon">➤</div>
+            <h3>End-to-End Travel & Logistics</h3>
+            <p>Flights, ground transport and visas managed by a dedicated logistics desk.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why">
+    <div class="container">
+      <div class="why-visual reveal">
+        <img id="whyImg"
+          src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200&auto=format&fit=crop"
+          alt="Executive team in discussion">
+      </div>
+      <div>
+        <div class="eyebrow reveal">Why Vertex</div>
+        <h2 class="reveal reveal-delay-1" style="font-size:clamp(1.9rem,3vw,2.6rem);margin-bottom:36px;">
+        Why Businesses Choose Vertex Travel</h2>
+        <div class="why-features reveal reveal-delay-2">
+          <div class="why-card">
+            <div class="num">01</div>
+            <h4>End-to-End Planning</h4>
+            <p>One partner from ideation to execution.</p>
+          </div>
+          <div class="why-card">
+            <div class="num">02</div>
+            <h4>Tailored Experiences</h4>
+            <p>Every itinerary and event is customized around your business objectives.</p>
+          </div>
+          <div class="why-card">
+            <div class="num">03</div>
+            <h4>Reliable Execution</h4>
+            <p>Dedicated project managers ensuring flawless delivery.</p>
+          </div>
+          <div class="why-card">
+            <div class="num">04</div>
+            <h4>Trusted Partner Network</h4>
+            <p>Premium venues, hotels, transport and destination partners.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACKED BY VERTEX GROUP -->
+  <section class="backed">
+    <div class="container">
+      <div class="backed-wrap reveal">
+        <div class="backed-img">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop"
+            alt="Vertex Group corporate office">
+        </div>
+        <div class="backed-panel">
+          <div class="eyebrow">Backed By</div>
+          <h3>Vertex Group</h3>
+          <p>Corporate travel isn't just about bookings, it's about creating experiences that drive collaboration, celebrate success and strengthen businesses.<br>
+As part of Vertex Group, we bring the scale, reliability and operational excellence of a global business ecosystem to every journey we curate.
+</p>
+          <!-- <div class="badges">
+            <div class="badge"><b>ISO 9001</b><span>Certified</span></div>
+            <div class="badge"><b>IATA</b><span>Accredited</span></div>
+            <div class="badge"><b>PCI DSS</b><span>Compliant</span></div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS (parallax) -->
+  <section class="stats">
+    <div class="stats-bg"></div>
+    <div class="stats-overlay"></div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal"><b class="counter" data-target="50">0</b><span>Corporate Experiences Deelivered</span></div>
+        <div class="stat-item reveal reveal-delay-1"><b class="counter" data-target="5">0</b><span>Countries Served</span>
+        </div>
+        <div class="stat-item reveal reveal-delay-2"><b class="counter" data-target="100">0</b><span>Destination
+            Partnerships</span></div>
+        <div class="stat-item reveal reveal-delay-3"><b>24/7</b><span>Support</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow reveal">Gallery</div>
+          <h2 class="reveal reveal-delay-1">A record of the rooms we've built.</h2>
+        </div>
+        <p class="reveal reveal-delay-1">Conferences, retreats, award nights and the venues behind them.</p>
+      </div>
+      <div class="masonry">
+        <div class="masonry-item reveal"><img
+            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop"
+            alt="Leadership summit"><span class="tag">Leadership Summit</span></div>
+        <div class="masonry-item reveal reveal-delay-1"><img
+            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop"
+            alt="Networking event"><span class="tag">Networking Reception</span></div>
+        <div class="masonry-item reveal reveal-delay-2"><img
+            src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=800&auto=format&fit=crop"
+            alt="Meeting room"><span class="tag">Meeting Room</span></div>
+        <div class="masonry-item reveal"><img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop"
+            alt="Awards stage"><span class="tag">Award Night</span></div>
+        <div class="masonry-item reveal reveal-delay-1"><img
+            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop"
+            alt="Luxury hotel lobby"><span class="tag">Partner Hotel</span></div>
+        <div class="masonry-item reveal reveal-delay-2"><img
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop"
+            alt="Business dinner"><span class="tag">Gala Dinner</span></div>
+        <div class="masonry-item reveal"><img
+            src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800&auto=format&fit=crop"
+            alt="Conference audience"><span class="tag">Annual Meet</span></div>
+        <div class="masonry-item reveal reveal-delay-1"><img
+            src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=800&auto=format&fit=crop"
+            alt="Leadership retreat"><span class="tag">Leadership Retreat</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <!-- <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow reveal">Clients</div>
+          <h2 class="reveal reveal-delay-1">Trusted by teams that don't have room for error.</h2>
+        </div>
+      </div>
+      <div class="test-grid">
+        <div class="test-card reveal">
+          <div>
+            <div class="quote-mark">"</div>
+            <p>Vertex ran our three-country leadership offsite without a single escalation reaching my desk. That's the
+              whole point of hiring a partner.</p>
+          </div>
+          <div class="test-foot">
+            <div class="who"><b>Chief of Staff</b><span>Financial Services Group</span></div>
+            <div class="test-logo">MERIDIAN</div>
+          </div>
+        </div>
+        <div class="test-card reveal reveal-delay-1">
+          <div>
+            <div class="quote-mark">"</div>
+            <p>They handled 400 attendees, six vendors and two venue changes in the final week — and it looked
+              effortless on the day.</p>
+          </div>
+          <div class="test-foot">
+            <div class="who"><b>VP, People</b><span>Enterprise Software Firm</span></div>
+            <div class="test-logo">NORTHBRIDGE</div>
+          </div>
+        </div>
+        <div class="test-card reveal reveal-delay-2">
+          <div>
+            <div class="quote-mark">"</div>
+            <p>Our annual meet finally felt like it matched the size of the company. The account team anticipated
+              problems before we saw them.</p>
+          </div>
+          <div class="test-foot">
+            <div class="who"><b>Director, Operations</b><span>Manufacturing Group</span></div>
+            <div class="test-logo">ARCLIGHT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- CTA (parallax) -->
+  <section class="cta">
+    <div class="cta-bg"></div>
+    <div class="cta-overlay"></div>
+    <div class="container">
+      <div class="cta-content reveal">
+        <div class="eyebrow">Get Started</div>
+        <h2>Ready to Plan Your Next Corporate Experience?</h2>
+        <p>Tell us the objective, headcount and dates — our team will come back with a proposal within 48 hours.</p>
+        <a href="#contact" class="btn btn-primary">Talk to Our Experts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div>
+        <div class="eyebrow reveal">Contact</div>
+        <h2 class="reveal reveal-delay-1" style="font-size:clamp(1.9rem,3vw,2.4rem);margin-bottom:10px;">Let's plan the
+          details.</h2>
+        <p class="reveal reveal-delay-1" style="color:var(--text-soft);margin-bottom:10px;">Our corporate desk responds
+          within one business day.</p>
+
+        <div class="reveal reveal-delay-2">
+          <div class="contact-info-item">
+            <div class="ci-label">Office</div>
+            <div class="ci-val">Vertex Group Tower, Cyber City, Gurugram, Haryana 122002</div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-label">Email</div>
+            <div class="ci-val">corporate@vertextravel.com</div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-label">Phone</div>
+            <div class="ci-val">+91 124 456 7890</div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-label">Hours</div>
+            <div class="ci-val">Mon – Sat, 9:00 AM – 7:00 PM IST</div>
+          </div>
+          <div class="map-frame">
+            <iframe src="https://maps.google.com/maps?q=Cyber%20City%20Gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              loading="lazy" title="Vertex Travel office location"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <form class="form-grid"
+          onsubmit="event.preventDefault(); this.reset(); alert('Thank you — our corporate desk will be in touch shortly.');">
+          <div class="field"><label>Name</label><input type="text" required></div>
+          <div class="field"><label>Company</label><input type="text" required></div>
+          <div class="field"><label>Email</label><input type="email" required></div>
+          <div class="field"><label>Phone</label><input type="tel"></div>
+          <div class="field full">
+            <label>Service</label>
+            <select required>
+              <option value="">Select a service</option>
+              <option>Corporate Offsites</option>
+              <option>Team Building</option>
+              <option>Leadership Retreats</option>
+              <option>Conferences</option>
+              <option>Annual Meets</option>
+              <option>Award Ceremonies</option>
+              <option>Gala Nights</option>
+              <option>Employee Engagement</option>
+              <option>Travel Logistics</option>
+              <option>Destination Management</option>
+            </select>
+          </div>
+          <div class="field full"><label>Message</label><textarea
+              placeholder="Tell us about your event — dates, headcount, destination"></textarea></div>
+          <div class="field full" style="margin-bottom:0;">
+            <button type="submit" class="btn btn-primary" style="width:fit-content;">Submit Inquiry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Vertex<span>Travel</span></div>
+          <p style="max-width:280px;font-size:0.9rem;">The Corporate Travel &amp; MICE division of Vertex Group —
+            planning and executing enterprise experiences across 5 countries.</p>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="X">x</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Clients</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Corporate Offsites</a></li>
+            <li><a href="#services">Leadership Retreats</a></li>
+            <li><a href="#services">Conferences</a></li>
+            <li><a href="#services">Destination Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li>Cyber City, Gurugram, HR</li>
+            <li>corporate@vertextravel.com</li>
+            <li>+91 124 456 7890</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Vertex Travel, a division of Vertex Group. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // header scroll state
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }));
+
+    // reveal on scroll
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+      const revealEls = document.querySelectorAll('.reveal');
+      revealEls.forEach(el => el.classList.remove('is-visible'));
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(el => io.observe(el));
+    }
+
+    // counters
+    const counters = document.querySelectorAll('.counter');
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          const duration = 1400;
+          const start = performance.now();
+          function tick(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(eased * target) + '+';
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          counterIO.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterIO.observe(c));
+
+    // subtle JS parallax for hero / why images (translate on scroll)
+    if (!reduceMotion) {
+      const parallaxEls = [
+        { el: document.getElementById('heroImg'), speed: 0.15 },
+        { el: document.getElementById('whyImg'), speed: 0.12 }
+      ];
+      function onScroll() {
+        const y = window.scrollY;
+        parallaxEls.forEach(p => {
+          if (!p.el) return;
+          const rect = p.el.closest('.hero-visual, .why-visual').getBoundingClientRect();
+          const offset = rect.top * p.speed;
+          p.el.style.transform = `translateY(${offset * -1}px)`;
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  </script>
+
+</body>
+
+</html>
